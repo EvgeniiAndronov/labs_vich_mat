@@ -66,7 +66,7 @@ pub fn nuton(x_i: &f32, x: &Vec<f32>, y: &Vec<f32>) -> f32 {
     let qx_d = qx(x_i, &x[0], &h(x));
 
     for i in 1..n {
-        let mn_1 = (dys[i]/factorial(i as f32));
+        let mn_1 = dys[i]/factorial(i as f32);
         let mn_2 = mn_qx_j(&qx_d, &i);
 
         result += mn_1 * mn_2;
