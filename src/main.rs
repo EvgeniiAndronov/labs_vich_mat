@@ -8,5 +8,4 @@ fn main() {
 
     let res_n = nuton::nuton(&value_to_interpolate, &x, &y);
     println!("Nuton interpolation polinom \t- ({};{:?})", value_to_interpolate, res_n);
-
 }
