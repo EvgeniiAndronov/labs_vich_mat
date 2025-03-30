@@ -42,7 +42,7 @@ fn dy(y: &Vec<f32>) -> Vec<f32> {
         let ob = y[i + 1] - y[i];
         result[i+1] = ob;
     }
-    println!("dy = {:?}", result);
+
     result
 }
 
@@ -52,9 +52,8 @@ fn dy_v(y: &Vec<f32>) -> Vec<f32> {
     let mut ob = y.to_vec();
     for i in 0..n-1 {
         ob = dy(&ob);
-        result[i + 1] = ob[n - 1 - i];
+        result[i + 1] = ob[i + 1];
     }
-    println!("dy_v = {:?}", result);
     result
 }
 
@@ -104,6 +103,14 @@ mod tests {
         x0 = 3.0;
         h = 2.0;
         assert_eq!(qx(&x_i, &x0, &h), 2.0);
+    }
+
+    #[test]
+    fn test_nuton() {
+        let x_i: f32 = 1.0;
+        let x: Vec<f32> = vec![0.0, 2.0, 4.0, 6.0];
+        let y: Vec<f32> = vec![-5.0, -3.0, 31.0, 145.0];
+        assert_eq!(nuton(&x_i, &x, &y), -5.0);
     }
 
 }
